@@ -1,0 +1,4 @@
+# Internal only. Raw scrape, review dumps, QA shots, research notes.
+research/
+assets/photos/
+*.pdf
