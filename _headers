@@ -1,0 +1,5 @@
+# Netlify: keep demo sites out of search engines at the header level, not just a
+# meta tag. These live on zonkelmedia.com subdomains, so a stray index would put
+# a prospect's name on the agency domain.
+/*
+  X-Robots-Tag: noindex, nofollow
