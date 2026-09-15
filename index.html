@@ -106,43 +106,36 @@ section{padding:clamp(4rem,8vw,6.5rem) 0;position:relative}
 body.menu-open{overflow:hidden}
 
 /* ====== HERO ====== */
-.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;padding:0 0 calc(clamp(2rem,5vh,3.5rem) + 100px)}
+.hero{position:relative;min-height:min(88svh,820px);display:flex;align-items:flex-end;overflow:hidden;padding:2rem 0 calc(clamp(1.5rem,4vh,3rem) + 100px)}
 .hero__media{position:absolute;inset:0;z-index:0}
 .hero__media picture{display:block;width:100%;height:100%}
-.hero__media img{width:100%;height:100%;object-fit:cover;object-position:50% 16%;animation:kb 30s ease-in-out infinite alternate;will-change:transform}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;animation:kb 30s ease-in-out infinite alternate;will-change:transform}
 @keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.12)}}
-/* mobile: photo lives in the TOP of the frame, copy sits on solid ground below it */
-.hero__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,13,12,.12) 0%,rgba(14,13,12,.18) 10%,rgba(14,13,12,.5) 19%,rgba(14,13,12,.9) 25%,#0e0d0c 29%,#0e0d0c 100%)}
+/* mobile: full-bleed photo, veil darkens toward the copy (same pattern as every other demo) */
+.hero__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,13,12,.5) 0%,rgba(14,13,12,.34) 22%,rgba(14,13,12,.78) 48%,rgba(14,13,12,.9) 70%,rgba(14,13,12,.94) 100%)}
 .hero__smoke{position:absolute;inset:0;pointer-events:none;background:radial-gradient(55% 34% at 32% 30%,rgba(255,255,255,.07),transparent 70%),radial-gradient(45% 30% at 72% 22%,rgba(var(--acc-rgb),.12),transparent 70%);animation:smoke 22s ease-in-out infinite alternate;mix-blend-mode:screen}
 @keyframes smoke{from{transform:translate3d(-1.5%,1%,0)}to{transform:translate3d(1.5%,-1.5%,0)}}
 .hero .wrap{position:relative;z-index:1;text-align:center}
-/* phones + tablets: the photo is a fixed band at the top, the copy flows below it on solid ground (never overlaps) */
-@media (max-width:899px){
-  .hero{min-height:0;display:block}
-  .hero__media{position:relative;inset:auto;height:clamp(210px,34svh,330px);overflow:hidden}
-  .hero__veil{inset:auto;top:0;left:0;right:0;height:clamp(210px,34svh,330px);background:linear-gradient(180deg,rgba(14,13,12,.1) 0%,rgba(14,13,12,.16) 38%,rgba(14,13,12,.55) 68%,rgba(14,13,12,.92) 88%,#0e0d0c 100%)}
-  .hero .wrap{padding-top:.35rem}
-}
-.hero__kicker{display:inline-flex;align-items:center;gap:.7rem;font-weight:600;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);margin-bottom:.9rem}
+.hero__kicker{display:inline-flex;align-items:center;gap:.7rem;font-weight:600;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);margin-bottom:.9rem;text-shadow:0 1px 10px rgba(0,0,0,.75)}
 .hero__kicker::before,.hero__kicker::after{content:"";width:26px;height:2px;background:var(--acc)}
 /* wordmark: stacked + tilted like the shop's own logo — brand green, black contour, white keyline */
 .hero h1{margin:0 0 1.1rem;line-height:1}
 .wm{display:inline-grid;justify-items:center;text-transform:uppercase;line-height:.8;transform:rotate(-4deg);transform-origin:50% 55%;padding:.25em .4em .1em}
-.wm__the{font-family:var(--f-tag);font-size:clamp(1.35rem,5.4vw,2.15rem);color:var(--brand-red);letter-spacing:.05em;margin-bottom:.32em;
+.wm__the{font-family:var(--f-tag);font-size:clamp(1.3rem,4.8vw,2.15rem);color:var(--brand-red);letter-spacing:.05em;margin-bottom:.32em;
   -webkit-text-stroke:.13em #0b0a09;paint-order:stroke fill;
   text-shadow:0 -.1em 0 #fff,.07em -.07em 0 #fff,.1em 0 0 #fff,.07em .07em 0 #fff,0 .1em 0 #fff,-.07em .07em 0 #fff,-.1em 0 0 #fff,-.07em -.07em 0 #fff,0 .05em .5em rgba(0,0,0,.85)}
-.wm__name{font-family:var(--f-tag);font-size:clamp(4.4rem,23vw,8.6rem);color:var(--brand-green);letter-spacing:-.015em;
+.wm__name{font-family:var(--f-tag);font-size:clamp(4.2rem,20vw,8.6rem);color:var(--brand-green);letter-spacing:-.015em;
   -webkit-text-stroke:.085em #0b0a09;paint-order:stroke fill;
   text-shadow:0 -.065em 0 #fff,.046em -.046em 0 #fff,.065em 0 0 #fff,.046em .046em 0 #fff,0 .065em 0 #fff,-.046em .046em 0 #fff,-.065em 0 0 #fff,-.046em -.046em 0 #fff,0 .04em .35em rgba(0,0,0,.9)}
 .wm__name--2{margin-top:-.04em;transform:translateX(.16em)}
 .wm__sub{display:block;font-family:var(--f-head);font-weight:700;font-size:clamp(.92rem,3.1vw,1.5rem);letter-spacing:.3em;text-indent:.3em;color:var(--ink);margin-top:.9em}
 .hero p{color:var(--ink);font-size:clamp(1.02rem,1.5vw,1.18rem);max-width:54ch;margin:0 auto 1.35rem;text-shadow:0 1px 12px rgba(0,0,0,.6)}
 .hero__cta{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
-.hero__trust{margin-top:1.4rem;display:grid;gap:.45rem;justify-items:center;color:var(--ink2);font-size:.9rem}
+.hero__trust{margin-top:1.15rem;display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 1.1rem;color:var(--ink2);font-size:.86rem}
 .hero__trust span{display:inline-flex;align-items:center;gap:.5rem}
 .hero__trust .ic{width:16px;height:16px;color:var(--acc-glow)}
 .hero__trust b{color:var(--ink)}
-@media (min-width:760px){.hero__trust{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem 1.7rem;margin-top:2rem}.hero p{margin-bottom:1.7rem}.hero__cta{gap:.75rem}}
+@media (min-width:760px){.hero__trust{gap:.6rem 1.7rem;margin-top:2rem;font-size:.9rem}.hero p{margin-bottom:1.7rem}.hero__cta{gap:.75rem}}
 @media (min-width:900px){
   .hero{align-items:center;padding:6rem 0 5rem;min-height:min(100svh,900px)}
   .hero .wrap{text-align:left;max-width:min(var(--wrap),100% - 2.5rem)}
