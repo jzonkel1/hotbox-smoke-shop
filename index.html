@@ -16,9 +16,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://jzonkel1.github.io/hotbox-smoke-shop/assets/img/og.jpg">
 <link rel="icon" href="assets/logo-512.png">
+<link rel="preload" as="image" href="assets/img/wordmark.webp" type="image/webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Titan+One&family=Unbounded:wght@500;700;900&family=Familjen+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Familjen+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 /* ====== TOKENS ====== */
 :root{
@@ -28,7 +29,7 @@
   --sage:#8fae7a;
   --brand-green:#58b840; --brand-red:#e01820;
   --star:#f2b632;
-  --f-head:'Unbounded',sans-serif; --f-body:'Familjen Grotesk',system-ui,sans-serif; --f-tag:'Titan One',system-ui,cursive;
+  --f-head:'Unbounded',sans-serif; --f-body:'Familjen Grotesk',system-ui,sans-serif;
   --r:16px; --r-sm:10px;
   --wrap:1180px;
   --shadow:0 20px 50px -20px rgba(0,0,0,.7);
@@ -118,17 +119,10 @@ body.menu-open{overflow:hidden}
 .hero .wrap{position:relative;z-index:1;text-align:center}
 .hero__kicker{display:inline-flex;align-items:center;gap:.7rem;font-weight:600;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);margin-bottom:.9rem;text-shadow:0 1px 10px rgba(0,0,0,.75)}
 .hero__kicker::before,.hero__kicker::after{content:"";width:26px;height:2px;background:var(--acc)}
-/* wordmark: stacked + tilted like the shop's own logo — brand green, black contour, white keyline */
-.hero h1{margin:0 0 1.1rem;line-height:1}
-.wm{display:inline-grid;justify-items:center;text-transform:uppercase;line-height:.8;transform:rotate(-4deg);transform-origin:50% 55%;padding:.25em .4em .1em}
-.wm__the{font-family:var(--f-tag);font-size:clamp(1.3rem,4.8vw,2.15rem);color:var(--brand-red);letter-spacing:.05em;margin-bottom:.32em;
-  -webkit-text-stroke:.13em #0b0a09;paint-order:stroke fill;
-  text-shadow:0 -.1em 0 #fff,.07em -.07em 0 #fff,.1em 0 0 #fff,.07em .07em 0 #fff,0 .1em 0 #fff,-.07em .07em 0 #fff,-.1em 0 0 #fff,-.07em -.07em 0 #fff,0 .05em .5em rgba(0,0,0,.85)}
-.wm__name{font-family:var(--f-tag);font-size:clamp(4.2rem,20vw,8.6rem);color:var(--brand-green);letter-spacing:-.015em;
-  -webkit-text-stroke:.085em #0b0a09;paint-order:stroke fill;
-  text-shadow:0 -.065em 0 #fff,.046em -.046em 0 #fff,.065em 0 0 #fff,.046em .046em 0 #fff,0 .065em 0 #fff,-.046em .046em 0 #fff,-.065em 0 0 #fff,-.046em -.046em 0 #fff,0 .04em .35em rgba(0,0,0,.9)}
-.wm__name--2{margin-top:-.04em;transform:translateX(.16em)}
-.wm__sub{display:block;font-family:var(--f-head);font-weight:700;font-size:clamp(.92rem,3.1vw,1.5rem);letter-spacing:.3em;text-indent:.3em;color:var(--ink);margin-top:.9em}
+/* wordmark: their own lettering (generated from the logo, cut out) — sized per viewport, tilted like the sign */
+.wm-img{display:block;height:auto;width:min(64vw,250px);margin:0 auto;filter:drop-shadow(0 10px 22px rgba(0,0,0,.65));transform:rotate(-6deg)}
+@media (min-width:900px){.wm-img{width:min(24vw,330px);margin:0}}
+.wm__sub{display:block;font-family:var(--f-head);font-weight:700;font-size:clamp(.92rem,3.1vw,1.5rem);letter-spacing:.3em;text-indent:.3em;color:var(--ink);margin-top:1.1rem}
 .hero p{color:var(--ink);font-size:clamp(1.02rem,1.5vw,1.18rem);max-width:54ch;margin:0 auto 1.35rem;text-shadow:0 1px 12px rgba(0,0,0,.6)}
 .hero__cta{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
 .hero__trust{margin-top:1.15rem;display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 1.1rem;color:var(--ink2);font-size:.86rem}
@@ -421,7 +415,7 @@ html.gated,body.gated{overflow:hidden}
   </div>
   <div class="wrap">
     <div class="hero__kicker">Corpus Christi · Two Locations</div>
-    <h1><span class="wm"><span class="wm__the">The</span><span class="wm__name">Hot</span><span class="wm__name wm__name--2">Box</span></span><span class="wm__sub">Smoke Shop</span></h1>
+    <h1><picture><source type="image/webp" srcset="assets/img/wordmark.webp"><img class="wm-img" src="assets/img/wordmark.png" alt="The Hot Box" width="699" height="832" fetchpriority="high" decoding="async"></picture><span class="wm__sub">Smoke Shop</span></h1>
     <p>Glass, vapes, papers, art, drinks and a game room with a chill room in the back. 5.0 stars on Google, open till midnight every night, and a staff that actually knows the shelf.</p>
     <div class="hero__cta">
       <a class="btn btn-acc" href="tel:+13614522727"><svg class="ic"><use href="#i-phone"/></svg>Call Yorktown</a>
